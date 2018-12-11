@@ -28,7 +28,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColorHint="#aaaaaa"
-                android:hint="搜索教育机构或课程"
+                android:hint="搜索教育机构或课程."
                 android:textSize="13dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
