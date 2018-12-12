@@ -15,10 +15,7 @@ import com.nan.tutor.R;
 public class HomeFragment extends Fragment {
 
 
-    public HomeFragment() {
-        // Required empty public constructor
-    }
-
+    public HomeFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

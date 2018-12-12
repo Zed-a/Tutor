@@ -61,18 +61,16 @@ public class StudyFragment extends Fragment implements View.OnClickListener{
                 CityPicker.from(this) //activity或者fragment
                         .enableAnimation(true)	//启用动画效果，默认无
 //                .setAnimationStyle(anim)	//自定义动画
-                        .setLocatedCity(new LocatedCity("杭州", "浙江", "101210101"))
+                        .setLocatedCity(new LocatedCity("上海", "上海", "101020100"))
                         .setHotCities(hotCities)	//指定热门城市
                         .setOnPickListener(new OnPickListener() {
                             @Override
                             public void onPick(int position, City data) {
-                                Toast.makeText(getActivity(), data.getName(), Toast.LENGTH_SHORT).show();
                                 city.setText(data.getName());
                             }
 
                             @Override
                             public void onCancel(){
-                                Toast.makeText(getActivity(), "取消选择", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
