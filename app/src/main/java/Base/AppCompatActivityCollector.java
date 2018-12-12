@@ -11,9 +11,11 @@ public class AppCompatActivityCollector {
     public static void addActivity(AppCompatActivity appCompatActivity){
         appCompatActivities.add(appCompatActivity);
     }
+
     public static void removeActivity(AppCompatActivity appCompatActivity){
         appCompatActivities.remove(appCompatActivity);
     }
+
     public static void finishAll(){
         for(AppCompatActivity appCompatActivity:appCompatActivities){
             if(!appCompatActivity.isFinishing()){
