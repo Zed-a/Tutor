@@ -10,7 +10,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/DefaultCityPickerTheme">
+            android:theme="@style/DefaultCityPickerTheme"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

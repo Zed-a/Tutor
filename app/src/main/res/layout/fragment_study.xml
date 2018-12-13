@@ -7,38 +7,42 @@
 
     <LinearLayout
         android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp">
         <TextView
             android:id="@+id/city"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="上海"
+            android:text="@string/city_initial"
             android:textSize="14sp"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="38dp"
-            android:layout_weight="7"
+            android:layout_weight="1"
             android:background="@drawable/searchbk"
             android:orientation="horizontal"
-            android:layout_marginLeft="5dp">
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp">
             <EditText
                 android:id="@+id/search"
                 android:background="@null"
                 android:cursorVisible="false"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:textColorHint="#aaaaaa"
-                android:hint="搜索教育机构或课程."
-                android:textSize="13dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:hint="@string/search_hint"
+                android:textSize="14sp"
                 android:layout_marginLeft="10dp"
-                android:layout_weight="1" />
+                android:layout_marginStart="10dp"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:inputType="text"/>
         </LinearLayout>
     </LinearLayout>
     <ImageView

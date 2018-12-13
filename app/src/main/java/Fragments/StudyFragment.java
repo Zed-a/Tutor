@@ -3,10 +3,15 @@ package Fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,17 +25,14 @@ import com.zaaach.citypicker.model.LocatedCity;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class StudyFragment extends Fragment implements View.OnClickListener{
 
     private TextView city;
+    private EditText search;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_study, container, false);
     }
 
@@ -42,7 +44,22 @@ public class StudyFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initView(){
-
+        search = getView().findViewById(R.id.search);
+        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH){
+                    if (TextUtils.isEmpty(search.getText().toString().trim())){
+                        Toast.makeText(getActivity(), "请输入内容", Toast.LENGTH_SHORT).show();
+                        return true;
+                    }else {
+                        Toast.makeText(getActivity(), "这里执行搜索操作", Toast.LENGTH_SHORT).show();
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
         city = getView().findViewById(R.id.city);
         city.setOnClickListener(this);
     }

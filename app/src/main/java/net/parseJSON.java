@@ -15,7 +15,7 @@ public class parseJSON {
      */
 
 
-    JSONObject json=new JSONObject();
+    private JSONObject json=new JSONObject();
     public void parse(String result){
         try {
             JSONObject jsonObject=new JSONObject(result);
