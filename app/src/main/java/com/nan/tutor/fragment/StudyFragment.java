@@ -91,7 +91,6 @@ public class StudyFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
     }
 
     @Override

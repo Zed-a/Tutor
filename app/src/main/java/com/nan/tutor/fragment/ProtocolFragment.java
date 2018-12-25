@@ -9,16 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nan.tutor.R;
+import com.nan.tutor.fragment.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProtocolFragment extends Fragment {
+public class ProtocolFragment extends BaseFragment {
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_protocol, container, false);
+    protected int getLayoutId() {
+        return R.layout.fragment_protocol;
     }
 
+    @Override
+    protected void initData() {
+
+    }
 }
