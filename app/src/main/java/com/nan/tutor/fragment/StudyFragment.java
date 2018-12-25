@@ -40,7 +40,7 @@ public class StudyFragment extends BaseFragment {
         hotCities.add(new HotCity("杭州", "浙江", "101210101"));
 
         CityPicker.from(this) //activity或者fragment
-                .enableAnimation(true)	//启用动画效果，默认无
+//                .enableAnimation(true)	//启用动画效果，默认无
 //                .setAnimationStyle(anim)	//自定义动画
                 .setLocatedCity(new LocatedCity("上海", "上海", "101020100"))
                 .setHotCities(hotCities)	//指定热门城市
