@@ -2,12 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Fragments.ProtocolFragment"
+    tools:context="com.nan.tutor.fragment.ProtocolFragment"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/protocalbk"/>
+        android:background="@drawable/protocalbk"
+        android:contentDescription="@string/protocol"/>
 
 </LinearLayout>

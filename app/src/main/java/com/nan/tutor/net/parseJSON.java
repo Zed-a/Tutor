@@ -1,4 +1,4 @@
-package net;
+package com.nan.tutor.net;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,7 +47,6 @@ public class parseJSON {
 
     /**
      * 解析服务器对用户登录注册的响应消息
-     * @param data
      */
     public void parseResponse(String data){
         try {

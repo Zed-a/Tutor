@@ -1,4 +1,4 @@
-package Util;
+package com.nan.tutor.util;
 
 /**
  * Created by nan on 2018/12/12.

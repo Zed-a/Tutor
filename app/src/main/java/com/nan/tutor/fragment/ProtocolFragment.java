@@ -1,4 +1,4 @@
-package Fragments;
+package com.nan.tutor.fragment;
 
 
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import com.nan.tutor.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PersonFragment extends Fragment {
+public class ProtocolFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_person, container, false);
+        return inflater.inflate(R.layout.fragment_protocol, container, false);
     }
 
 }

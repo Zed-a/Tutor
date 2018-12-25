@@ -1,21 +1,16 @@
-package Fragments;
+package com.nan.tutor.fragment;
 
 
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nan.tutor.R;
+import com.nan.tutor.fragment.base.BaseFragment;
 import com.zaaach.citypicker.CityPicker;
 import com.zaaach.citypicker.adapter.OnPickListener;
 import com.zaaach.citypicker.model.City;
@@ -26,13 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
+import butterknife.OnEditorAction;
 
-public class StudyFragment extends Fragment{
+public class StudyFragment extends BaseFragment {
 
-    private Unbinder unbinder;
     @BindView(R.id.city)
     TextView city;
     @BindView(R.id.search)
@@ -77,43 +70,32 @@ public class StudyFragment extends Fragment{
                 .show();
     }
 
+    @OnEditorAction(R.id.search)
+    public boolean onEditorSearch(TextView v, int actionId, KeyEvent event){
+        if (actionId == EditorInfo.IME_ACTION_SEARCH){
+            if (TextUtils.isEmpty(search.getText().toString().trim())){
+                Toast.makeText(getActivity(), "请输入内容", Toast.LENGTH_SHORT).show();
+                return true;
+            }else {
+                Toast.makeText(getActivity(), "这里执行搜索操作", Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        }
+        return false;
+    }
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_study, container, false);
-        unbinder = ButterKnife.bind(this,view);
-        return view;
+    protected int getLayoutId() {
+        return R.layout.fragment_study;
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        initView();
-
-    }
-
-    private void initView(){
-        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH){
-                    if (TextUtils.isEmpty(search.getText().toString().trim())){
-                        Toast.makeText(getActivity(), "请输入内容", Toast.LENGTH_SHORT).show();
-                        return true;
-                    }else {
-                        Toast.makeText(getActivity(), "这里执行搜索操作", Toast.LENGTH_SHORT).show();
-                    }
-                    return true;
-                }
-                return false;
-            }
-        });
-    }
-
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }

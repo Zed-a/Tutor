@@ -1,5 +1,6 @@
-package net;
+package com.nan.tutor.net;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
@@ -11,13 +12,14 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import Util.Constant;
+import com.nan.tutor.util.Constant;
 
 /**
  * 进行网络通信，进行消息的上传与下载
  */
 public class NetConnection {
 
+    @SuppressLint("StaticFieldLeak")
     public NetConnection(final String url, final HttpMethod method, final SuccessCallback successCallback, final FailCallback failCallback, final JSONObject requestData) {
 
         new AsyncTask<Void, Void, String>() {//防止阻塞主线程
@@ -58,8 +60,8 @@ public class NetConnection {
 
                     //从服务器读取数据
                     BufferedReader br = new BufferedReader(new InputStreamReader(uc.getInputStream(), Constant.CHARSET));
-                    String line = null;
-                    StringBuffer result = new StringBuffer();
+                    String line;
+                    StringBuilder result = new StringBuilder();
                     while ((line = br.readLine()) != null) {//一行一行读取数据
                         result.append(line);
                     }
@@ -99,11 +101,11 @@ public class NetConnection {
     /**
      * result就是从服务器返回的数据
      */
-    public static interface SuccessCallback {
+    public interface SuccessCallback {
         void onSuccess(String result);
     }
 
-    public static interface FailCallback {
+    public interface FailCallback {
         void onFail(String result);
     }
 }

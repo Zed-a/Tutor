@@ -2,4 +2,9 @@
     <string name="app_name">家教协议＋</string>
     <string name="search_hint">搜索教育机构或课程</string>
     <string name="city_initial">上海</string>
+
+    <string name="home">home</string>
+    <string name="protocol">protocol</string>
+    <string name="study">study</string>
+    <string name="person">person</string>
 </resources>
