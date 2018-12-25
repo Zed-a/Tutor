@@ -18,32 +18,52 @@ import Fragments.PersonFragment;
 import Fragments.ProtocolFragment;
 import Fragments.StudyFragment;
 import Util.LogUtil;
+import Util.ToastUtil;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import github.chenupt.springindicator.SpringIndicator;
 
 public class HomeActivity extends BaseActivity {
 
     private List<Fragment> fragments = new ArrayList<>();
     private List<String> fragtitles = new ArrayList<>();
-    private ViewPager viewPager;
-    private SpringIndicator springIndicator;
+
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
+    @BindView(R.id.indicator)
+    SpringIndicator springIndicator;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initView();
         LogUtil.Log(this,"start","");
     }
 
-    private void initView(){
-        setContentView(R.layout.activity_home);
-
-        springIndicator = findViewById(R.id.indicator);
+    @Override
+    protected void initView() {
+        super.initView();
+//        springIndicator = findViewById(R.id.indicator);
         initFrag();
         initViewPager();
     }
 
+    @Override
+    protected void applyEvent() {
+        super.applyEvent();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_home;
+    }
+
+    @Override
+    protected void initData() {
+
+    }
 
     private void initViewPager(){
-        viewPager = findViewById(R.id.viewPager);
+//        viewPager = findViewById(R.id.viewPager);
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),fragments,fragtitles);
         viewPager.setAdapter(adapter);
         springIndicator.setViewPager(viewPager);

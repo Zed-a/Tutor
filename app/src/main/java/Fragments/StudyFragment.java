@@ -25,15 +25,64 @@ import com.zaaach.citypicker.model.LocatedCity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudyFragment extends Fragment implements View.OnClickListener{
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
-    private TextView city;
-    private EditText search;
+public class StudyFragment extends Fragment{
+
+    private Unbinder unbinder;
+    @BindView(R.id.city)
+    TextView city;
+    @BindView(R.id.search)
+    EditText search;
+    @OnClick(R.id.city)
+    public void onClickCity() {
+        List<HotCity> hotCities = new ArrayList<>();
+        hotCities.add(new HotCity("北京", "北京", "101010100")); //code为城市代码
+        hotCities.add(new HotCity("上海", "上海", "101020100"));
+        hotCities.add(new HotCity("广州", "广东", "101280101"));
+        hotCities.add(new HotCity("深圳", "广东", "101280601"));
+        hotCities.add(new HotCity("杭州", "浙江", "101210101"));
+
+        CityPicker.from(this) //activity或者fragment
+                .enableAnimation(true)	//启用动画效果，默认无
+//                .setAnimationStyle(anim)	//自定义动画
+                .setLocatedCity(new LocatedCity("上海", "上海", "101020100"))
+                .setHotCities(hotCities)	//指定热门城市
+                .setOnPickListener(new OnPickListener() {
+                    @Override
+                    public void onPick(int position, City data) {
+                        city.setText(data.getName());
+                    }
+
+                    @Override
+                    public void onCancel(){
+                    }
+
+                    @Override
+                    public void onLocate() {
+                        //定位接口，需要APP自身实现，这里模拟一下定位
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //定位完成之后更新数据
+//                                CityPicker.getInstance()
+//                                        .locateComplete(new LocatedCity("深圳", "广东", "101280601"), LocateState.SUCCESS);
+                            }
+                        }, 3000);
+                    }
+                })
+                .show();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_study, container, false);
+        View view = inflater.inflate(R.layout.fragment_study, container, false);
+        unbinder = ButterKnife.bind(this,view);
+        return view;
     }
 
     @Override
@@ -44,7 +93,6 @@ public class StudyFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initView(){
-        search = getView().findViewById(R.id.search);
         search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -60,50 +108,12 @@ public class StudyFragment extends Fragment implements View.OnClickListener{
                 return false;
             }
         });
-        city = getView().findViewById(R.id.city);
-        city.setOnClickListener(this);
     }
 
+
     @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.city:
-                List<HotCity> hotCities = new ArrayList<>();
-                hotCities.add(new HotCity("北京", "北京", "101010100")); //code为城市代码
-                hotCities.add(new HotCity("上海", "上海", "101020100"));
-                hotCities.add(new HotCity("广州", "广东", "101280101"));
-                hotCities.add(new HotCity("深圳", "广东", "101280601"));
-                hotCities.add(new HotCity("杭州", "浙江", "101210101"));
-
-                CityPicker.from(this) //activity或者fragment
-                        .enableAnimation(true)	//启用动画效果，默认无
-//                .setAnimationStyle(anim)	//自定义动画
-                        .setLocatedCity(new LocatedCity("上海", "上海", "101020100"))
-                        .setHotCities(hotCities)	//指定热门城市
-                        .setOnPickListener(new OnPickListener() {
-                            @Override
-                            public void onPick(int position, City data) {
-                                city.setText(data.getName());
-                            }
-
-                            @Override
-                            public void onCancel(){
-                            }
-
-                            @Override
-                            public void onLocate() {
-                                //定位接口，需要APP自身实现，这里模拟一下定位
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        //定位完成之后更新数据
-//                                CityPicker.getInstance()
-//                                        .locateComplete(new LocatedCity("深圳", "广东", "101280601"), LocateState.SUCCESS);
-                                    }
-                                }, 3000);
-                            }
-                        })
-                        .show();
-        }
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }
