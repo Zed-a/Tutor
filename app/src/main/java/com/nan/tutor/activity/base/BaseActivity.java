@@ -1,5 +1,6 @@
 package com.nan.tutor.activity.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,6 +39,9 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected abstract void initData();
 
+    protected boolean isLoadingEnable() {
+        return false;
+    }
 
     /**
      * 设置事件监听
@@ -46,5 +50,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    public void startActivity(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        startActivity(intent);
+    }
+
+    public void startActivity(Class<?> cls, Bundle bundle) {
+        Intent intent = new Intent(this, cls);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

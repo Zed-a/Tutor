@@ -37,7 +37,6 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-//        springIndicator = findViewById(R.id.indicator);
         initFrag();
         initViewPager();
     }
