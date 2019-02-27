@@ -1,4 +1,4 @@
-package com.nan.tutor.adapter;
+package com.nan.tutor.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
-public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+public class TutorFragmentPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList;
     private List<String> titleList;
-    public MyFragmentPagerAdapter(FragmentManager fm, List<Fragment> fragmentList, List<String> titleList) {
+    public TutorFragmentPagerAdapter(FragmentManager fm, List<Fragment> fragmentList, List<String> titleList) {
         super(fm);
         this.fragmentList=fragmentList;
         this.titleList=titleList;

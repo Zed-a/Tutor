@@ -12,4 +12,7 @@ import rx.Observable;
 public interface LoginService {
     @GET("info")
     Observable<JsonDataResp> connectTest();
+
+    @GET("users/questions")
+    Observable<JsonDataResp> getQuestion();
 }

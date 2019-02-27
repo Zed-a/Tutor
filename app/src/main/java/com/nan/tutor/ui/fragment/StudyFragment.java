@@ -1,4 +1,4 @@
-package com.nan.tutor.fragment;
+package com.nan.tutor.ui.fragment;
 
 
 import android.os.Handler;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nan.tutor.R;
-import com.nan.tutor.fragment.base.BaseFragment;
+import com.nan.tutor.ui.base.BaseFragment;
 import com.zaaach.citypicker.CityPicker;
 import com.zaaach.citypicker.adapter.OnPickListener;
 import com.zaaach.citypicker.model.City;

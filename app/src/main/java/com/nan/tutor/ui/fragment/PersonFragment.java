@@ -1,10 +1,10 @@
-package com.nan.tutor.fragment;
+package com.nan.tutor.ui.fragment;
 
 
 import android.support.v4.app.Fragment;
 
 import com.nan.tutor.R;
-import com.nan.tutor.fragment.base.BaseFragment;
+import com.nan.tutor.ui.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} sass.

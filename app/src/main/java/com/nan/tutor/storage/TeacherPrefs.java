@@ -13,18 +13,9 @@ import javax.inject.Inject;
 public class TeacherPrefs extends TutorPrefs{
     private final static String PREFS_NAME = "teacherPrefs";
 
-    @Inject
-    Gson gson;
+    @Inject Gson gson;
 
     @Inject TeacherPrefs(@ForApplication Context context) {
         super(context, PREFS_NAME);
-    }
-
-    public void setA() {
-        super.setString("a","123");
-    }
-
-    public String getA() {
-        return super.getString("a");
     }
 }

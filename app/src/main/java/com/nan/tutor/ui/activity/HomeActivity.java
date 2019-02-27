@@ -1,4 +1,4 @@
-package com.nan.tutor.activity;
+package com.nan.tutor.ui.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,12 +9,12 @@ import com.nan.tutor.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nan.tutor.adapter.MyFragmentPagerAdapter;
-import com.nan.tutor.activity.base.BaseActivity;
-import com.nan.tutor.fragment.HomeFragment;
-import com.nan.tutor.fragment.PersonFragment;
-import com.nan.tutor.fragment.ProtocolFragment;
-import com.nan.tutor.fragment.StudyFragment;
+import com.nan.tutor.ui.adapter.TutorFragmentPagerAdapter;
+import com.nan.tutor.ui.base.BaseActivity;
+import com.nan.tutor.ui.fragment.HomeFragment;
+import com.nan.tutor.ui.fragment.PersonFragment;
+import com.nan.tutor.ui.fragment.ProtocolFragment;
+import com.nan.tutor.ui.fragment.StudyFragment;
 import com.nan.tutor.util.LogUtil;
 import butterknife.BindView;
 import github.chenupt.springindicator.SpringIndicator;
@@ -48,7 +48,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initViewPager(){
-        MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),fragments,fragtitles);
+        TutorFragmentPagerAdapter adapter = new TutorFragmentPagerAdapter(getSupportFragmentManager(),fragments,fragtitles);
         viewPager.setAdapter(adapter);
         springIndicator.setViewPager(viewPager);
         viewPager.setOffscreenPageLimit(2);

@@ -80,7 +80,7 @@ class AppModule {
     Retrofit retrofit(OkHttpClient client, Gson gson) {
         return new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://192.168.1.1:8080")
+                .baseUrl("http://192.168.1.104:8081")
 //                .baseUrl("http://129.28.81.66:8080")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))

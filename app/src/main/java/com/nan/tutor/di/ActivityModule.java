@@ -1,7 +1,7 @@
 package com.nan.tutor.di;
 
-import com.nan.tutor.activity.HomeActivity;
-import com.nan.tutor.activity.LoginActivity;
+import com.nan.tutor.ui.activity.HomeActivity;
+import com.nan.tutor.ui.activity.LoginActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

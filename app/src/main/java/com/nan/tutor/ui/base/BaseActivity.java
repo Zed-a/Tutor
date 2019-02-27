@@ -1,12 +1,10 @@
-package com.nan.tutor.activity.base;
+package com.nan.tutor.ui.base;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import com.nan.tutor.R;
+import com.nan.tutor.log.TutorLog;
 
 import butterknife.ButterKnife;
 
@@ -14,7 +12,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
 
-        Log.d("ActivityName", getClass().getSimpleName());
+        TutorLog.d("ActivityName", getClass().getSimpleName());
         AppCompatActivityCollector.addActivity(this);
         if (getLayoutId() != 0) {
             setContentView(getLayoutId());

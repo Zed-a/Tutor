@@ -1,4 +1,4 @@
-package com.nan.tutor.fragment.base;
+package com.nan.tutor.ui.base;
 
 
 import android.os.Bundle;

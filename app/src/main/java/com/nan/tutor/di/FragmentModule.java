@@ -1,6 +1,6 @@
 package com.nan.tutor.di;
 
-import com.nan.tutor.fragment.StudyFragment;
+import com.nan.tutor.ui.fragment.StudyFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

@@ -1,4 +1,4 @@
-package com.nan.tutor.activity.base;
+package com.nan.tutor.ui.base;
 
 import android.support.v7.app.AppCompatActivity;
 
