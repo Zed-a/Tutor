@@ -11,7 +11,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
 
-
         Log.d("ActivityName", getClass().getSimpleName());
         AppCompatActivityCollector.addActivity(this);
         if (getLayoutId() != 0) {

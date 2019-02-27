@@ -16,6 +16,7 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.password)
     EditText mPassword;
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
