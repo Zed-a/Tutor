@@ -10,12 +10,21 @@ import java.io.Serializable;
  */
 
 public class JsonDataResp<T> implements Serializable {
-    @SerializedName("rc")
+    @SerializedName("code")
     public int code;
 
-    @SerializedName("err_msg")
-    public String errMsg;
+    @SerializedName("msg")
+    public String msg;
 
     @SerializedName("data")
     public T data;
+
+    @Override
+    public String toString() {
+        return "JsonDataResp{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data.toString() +
+                '}';
+    }
 }

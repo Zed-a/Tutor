@@ -1,18 +1,30 @@
 package com.nan.tutor.network.service;
 
 
+import com.nan.tutor.bean.Student;
 import com.nan.tutor.network.JsonDataResp;
 
-import retrofit2.http.GET;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
 import rx.Observable;
 
 /**
  * Created by nan on 2019/2/27.
  */
 public interface LoginService {
-    @GET("info")
-    Observable<JsonDataResp> connectTest();
+    @FormUrlEncoded
+    @POST("auth/register")
+    Observable<JsonDataResp<Student>> rigister(
+            @Field("phone") String phone,
+            @Field("password") String password
+    );
 
-    @GET("users/questions")
-    Observable<JsonDataResp> getQuestion();
+
+    @FormUrlEncoded
+    @POST("auth/login")
+    Observable<JsonDataResp<Student>> login(
+            @Field("phone") String phone,
+            @Field("password") String password
+    );
 }
