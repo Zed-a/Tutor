@@ -8,7 +8,26 @@ import java.util.List;
 /**
  * Created by nan on 2019/2/27.
  */
-public class Student extends People implements Serializable {
+public class Student implements Serializable {
+
+    @SerializedName("id")
+    private String id;
+
+    @SerializedName("password")
+    private String password;
+
+    @SerializedName("name")
+    private String name;
+
+    @SerializedName("sex")
+    private String sex;
+
+    @SerializedName("age")
+    private String age;
+
+    @SerializedName("phone")
+    private String phone;
+
     @SerializedName("subject")
     private List<String> subject;
 
