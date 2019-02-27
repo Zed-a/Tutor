@@ -41,23 +41,13 @@ public class HomeActivity extends BaseActivity {
         initViewPager();
     }
 
-    @Override
-    protected void applyEvent() {
-        super.applyEvent();
-    }
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_home;
     }
 
-    @Override
-    protected void initData() {
-
-    }
-
     private void initViewPager(){
-//        viewPager = findViewById(R.id.viewPager);
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),fragments,fragtitles);
         viewPager.setAdapter(adapter);
         springIndicator.setViewPager(viewPager);

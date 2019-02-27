@@ -2,8 +2,11 @@ package com.nan.tutor.activity.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import com.nan.tutor.R;
 
 import butterknife.ButterKnife;
 
@@ -21,35 +24,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
         initData();
         applyEvent();
-
     }
 
     protected abstract int getLayoutId();
 
-
     /**
      * 初始化View
      */
-    protected void initView(){}
-
+    protected void initView() {}
 
     /**
      * 初始化数据
      */
-    protected abstract void initData();
-
-    protected boolean isLoadingEnable() {
-        return false;
-    }
+    protected void initData() {}
 
     /**
      * 设置事件监听
      */
-    protected void applyEvent(){}
-
-    protected void onDestroy() {
-        super.onDestroy();
-    }
+    protected void applyEvent() {}
 
     public void startActivity(Class<?> cls) {
         Intent intent = new Intent(this, cls);
