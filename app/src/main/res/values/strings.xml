@@ -1,8 +1,8 @@
 <resources>
+    <!--app-->
     <string name="app_name">家教协议＋</string>
     <string name="search_hint">搜索教育机构或课程</string>
     <string name="city_initial">上海</string>
-
 
     <!--network-->
     <string name="network_error">网络开小差了</string>

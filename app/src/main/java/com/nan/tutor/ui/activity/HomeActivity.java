@@ -1,21 +1,19 @@
 package com.nan.tutor.ui.activity;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.nan.tutor.R;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import com.nan.tutor.ui.adapter.TutorFragmentPagerAdapter;
 import com.nan.tutor.ui.base.BaseActivity;
 import com.nan.tutor.ui.fragment.HomeFragment;
 import com.nan.tutor.ui.fragment.PersonFragment;
 import com.nan.tutor.ui.fragment.ProtocolFragment;
 import com.nan.tutor.ui.fragment.StudyFragment;
-import com.nan.tutor.util.LogUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import github.chenupt.springindicator.SpringIndicator;
 
@@ -26,13 +24,9 @@ public class HomeActivity extends BaseActivity {
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;
+
     @BindView(R.id.indicator)
     SpringIndicator springIndicator;
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        LogUtil.Log(this,"start","");
-    }
 
     @Override
     protected void initView() {
@@ -40,7 +34,6 @@ public class HomeActivity extends BaseActivity {
         initFrag();
         initViewPager();
     }
-
 
     @Override
     protected int getLayoutId() {

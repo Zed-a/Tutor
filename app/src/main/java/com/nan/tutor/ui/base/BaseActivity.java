@@ -7,13 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import com.nan.tutor.log.TutorLog;
 
 import butterknife.ButterKnife;
+import dagger.android.AndroidInjection;
 
 public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(saveInstanceState);
 
         TutorLog.d("ActivityName", getClass().getSimpleName());
-        AppCompatActivityCollector.addActivity(this);
         if (getLayoutId() != 0) {
             setContentView(getLayoutId());
         }
@@ -21,7 +22,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initView();
         initData();
-        applyEvent();
     }
 
     protected abstract int getLayoutId();
@@ -35,11 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 初始化数据
      */
     protected void initData() {}
-
-    /**
-     * 设置事件监听
-     */
-    protected void applyEvent() {}
 
     public void startActivity(Class<?> cls) {
         Intent intent = new Intent(this, cls);

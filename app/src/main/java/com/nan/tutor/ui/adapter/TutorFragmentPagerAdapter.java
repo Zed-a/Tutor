@@ -9,6 +9,7 @@ import java.util.List;
 public class TutorFragmentPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList;
     private List<String> titleList;
+
     public TutorFragmentPagerAdapter(FragmentManager fm, List<Fragment> fragmentList, List<String> titleList) {
         super(fm);
         this.fragmentList=fragmentList;

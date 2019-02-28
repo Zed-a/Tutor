@@ -1,7 +1,5 @@
 package com.nan.tutor.ui.fragment;
 
-
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
@@ -20,6 +18,7 @@ import com.zaaach.citypicker.model.LocatedCity;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnEditorAction;
@@ -28,12 +27,14 @@ public class StudyFragment extends BaseFragment {
 
     @BindView(R.id.city)
     TextView city;
+
     @BindView(R.id.search)
     EditText search;
+
     @OnClick(R.id.city)
-    public void onClickCity() {
+    void onClickCity() {
         List<HotCity> hotCities = new ArrayList<>();
-        hotCities.add(new HotCity("北京", "北京", "101010100")); //code为城市代码
+        hotCities.add(new HotCity("北京", "北京", "101010100"));
         hotCities.add(new HotCity("上海", "上海", "101020100"));
         hotCities.add(new HotCity("广州", "广东", "101280101"));
         hotCities.add(new HotCity("深圳", "广东", "101280601"));
@@ -51,23 +52,17 @@ public class StudyFragment extends BaseFragment {
                     }
 
                     @Override
-                    public void onCancel(){
-                    }
+                    public void onCancel(){}
 
                     @Override
-                    public void onLocate() {
-                        //定位接口，需要APP自身实现，这里模拟一下定位
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                //定位完成之后更新数据
-//                                CityPicker.getInstance()
-//                                        .locateComplete(new LocatedCity("深圳", "广东", "101280601"), LocateState.SUCCESS);
-                            }
-                        }, 3000);
-                    }
+                    public void onLocate() {}
                 })
                 .show();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_study;
     }
 
     @OnEditorAction(R.id.search)
@@ -82,19 +77,5 @@ public class StudyFragment extends BaseFragment {
             return true;
         }
         return false;
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_study;
-    }
-
-    @Override
-    protected void initData() {
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 }

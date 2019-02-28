@@ -20,7 +20,6 @@ public interface LoginService {
             @Field("password") String password
     );
 
-
     @FormUrlEncoded
     @POST("auth/login")
     Observable<JsonDataResp<Student>> login(

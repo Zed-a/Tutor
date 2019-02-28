@@ -37,9 +37,6 @@ public class Student implements Serializable {
     @SerializedName("grade")
     private String grade;
 
-    public Student() {
-    }
-
     @Override
     public String toString() {
         return "Student{" +
