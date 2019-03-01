@@ -9,10 +9,8 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.SDKInitializer;
 
 /**
- * location related logic
- *
- * @author quyang
- * @date 2019/2/21
+ * @author nan
+ * @date 2019/2/28
  */
 public class LocationManager {
 
@@ -57,7 +55,6 @@ public class LocationManager {
 
         @Override
         public void onReceiveLocation(BDLocation location) {
-
             if (location.getLocType() == BDLocation.TypeGpsLocation
                     || location.getLocType() == BDLocation.TypeNetWorkLocation) {
                 if (callback != null) {

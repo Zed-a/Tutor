@@ -10,7 +10,8 @@ import com.nan.tutor.di.ForApplication;
 import javax.inject.Inject;
 
 /**
- * Created by nan on 2019/2/27.
+ * @author nan
+ * @date 2019/2/27
  */
 public class StudentPrefs extends TutorPrefs{
     private static final String PREFS_NAME = "teacherPrefs";
@@ -23,7 +24,7 @@ public class StudentPrefs extends TutorPrefs{
     }
 
     public Student getStudent() {
-        return gson.fromJson(getString(STUDENT),Student.class);
+        return gson.fromJson(getString(STUDENT), Student.class);
     }
 
     public void setStudent(@NonNull Student student) {

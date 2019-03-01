@@ -3,7 +3,6 @@ package com.nan.tutor.ui.activity;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
-import com.baidu.location.BDLocation;
 import com.nan.tutor.R;
 import com.nan.tutor.bean.Student;
 import com.nan.tutor.log.TutorLog;
@@ -13,8 +12,6 @@ import com.nan.tutor.network.RxSubscriber;
 import com.nan.tutor.network.service.LoginService;
 import com.nan.tutor.storage.StudentPrefs;
 import com.nan.tutor.ui.base.BaseActivity;
-import com.nan.tutor.util.CallBack;
-import com.nan.tutor.util.LocationManager;
 import com.nan.tutor.util.ToastUtil;
 
 import javax.inject.Inject;
@@ -29,25 +26,6 @@ public class LoginActivity extends BaseActivity {
 
     @BindView(R.id.password)
     EditText mPassword;
-
-    @OnClick(R.id.goto_home)
-    void clickGotoHome() {
-        startActivity(HomeActivity.class);
-    }
-
-    @OnClick(R.id.show_location)
-    void clickShowLocation() {
-        LocationManager locationManager = LocationManager.getIntance();
-        locationManager.getLocation(this, new CallBack<BDLocation>() {
-            @Override
-            public void action(BDLocation location) {
-                String s = "纬度:"+location.getLatitude()+"      "+"经度:"+location.getLongitude() +"\n"+"国家:"
-                        +location.getCountry()+"     "+"省:"+location.getProvince()+"     "+ "市:"+location.
-                        getCity()+"\n"+"区:"+location.getDistrict()+"      "+"街道:  "+location.getStreet();
-                ToastUtil.show(LoginActivity.this,s);
-            }
-        });
-    }
 
     @Inject
     LoginService loginService;
@@ -105,6 +83,25 @@ public class LoginActivity extends BaseActivity {
                         }
                     }
                 });
+    }
+
+    @OnClick(R.id.goto_home)
+    void clickGotoHome() {
+        startActivity(HomeActivity.class);
+    }
+
+    @OnClick(R.id.show_location)
+    void clickShowLocation() {
+//        LocationManager locationManager = LocationManager.getIntance();
+//        locationManager.getLocation(this, new CallBack<BDLocation>() {
+//            @Override
+//            public void action(BDLocation location) {
+//                String s = "纬度:"+location.getLatitude()+"      "+"经度:"+location.getLongitude() +"\n"+"国家:"
+//                        +location.getCountry()+"     "+"省:"+location.getProvince()+"     "+ "市:"+location.
+//                        getCity()+"\n"+"区:"+location.getDistrict()+"      "+"街道:  "+location.getStreet();
+//                ToastUtil.show(LoginActivity.this,s);
+//            }
+//        });
     }
 }
 

@@ -3,7 +3,6 @@ package com.nan.tutor.util;
 /**
  * Created by nan on 2018/12/12.
  */
-
 public class Constant {
 
     public static final String CHARSET = "utf-8";

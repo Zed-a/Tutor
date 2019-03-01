@@ -31,6 +31,25 @@ public class StudyFragment extends BaseFragment {
     @BindView(R.id.search)
     EditText search;
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_study;
+    }
+
+    @OnEditorAction(R.id.search)
+    public boolean onEditorSearch(TextView v, int actionId, KeyEvent event){
+        if (actionId == EditorInfo.IME_ACTION_SEARCH){
+            if (TextUtils.isEmpty(search.getText().toString().trim())){
+                Toast.makeText(getActivity(), "请输入内容", Toast.LENGTH_SHORT).show();
+                return true;
+            }else {
+                Toast.makeText(getActivity(), "这里执行搜索操作", Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        }
+        return false;
+    }
+
     @OnClick(R.id.city)
     void onClickCity() {
         List<HotCity> hotCities = new ArrayList<>();
@@ -58,24 +77,5 @@ public class StudyFragment extends BaseFragment {
                     public void onLocate() {}
                 })
                 .show();
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_study;
-    }
-
-    @OnEditorAction(R.id.search)
-    public boolean onEditorSearch(TextView v, int actionId, KeyEvent event){
-        if (actionId == EditorInfo.IME_ACTION_SEARCH){
-            if (TextUtils.isEmpty(search.getText().toString().trim())){
-                Toast.makeText(getActivity(), "请输入内容", Toast.LENGTH_SHORT).show();
-                return true;
-            }else {
-                Toast.makeText(getActivity(), "这里执行搜索操作", Toast.LENGTH_SHORT).show();
-            }
-            return true;
-        }
-        return false;
     }
 }
