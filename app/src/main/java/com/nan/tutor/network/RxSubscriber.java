@@ -18,7 +18,7 @@ public class RxSubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onError(Throwable e) {
-        ToastUtil.show(TutorApplication.get().getApplicationContext(), R.string.network_error);
+        ToastUtil.show(TutorApplication.getInstance().getApplicationContext(), R.string.network_error);
     }
 
     @Override

@@ -31,7 +31,7 @@ public class TutorApplication extends Application implements HasActivityInjector
 
     private AppComponent appComponent;
     private static TutorApplication INSTANCE;
-    public static TutorApplication get() {
+    public static TutorApplication getInstance() {
         return INSTANCE;
     }
 

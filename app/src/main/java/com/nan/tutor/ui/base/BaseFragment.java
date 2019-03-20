@@ -20,6 +20,7 @@ public abstract class BaseFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this,view);
+        initView(view);
         return view;
     }
 
@@ -34,4 +35,6 @@ public abstract class BaseFragment extends Fragment {
      * @return LayoutId
      */
     protected abstract int getLayoutId();
+
+    protected abstract void initView(View view);
 }

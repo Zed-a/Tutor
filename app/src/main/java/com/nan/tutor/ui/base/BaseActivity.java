@@ -1,6 +1,7 @@
 package com.nan.tutor.ui.base;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -14,7 +15,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle saveInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(saveInstanceState);
-
         TutorLog.i(getClass().getSimpleName(), "onCreate");
         if (getLayoutId() != 0) {
             setContentView(getLayoutId());

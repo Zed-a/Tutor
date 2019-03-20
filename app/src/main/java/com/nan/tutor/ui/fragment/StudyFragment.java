@@ -2,6 +2,7 @@ package com.nan.tutor.ui.fragment;
 
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -48,6 +49,11 @@ public class StudyFragment extends BaseFragment {
             return true;
         }
         return false;
+    }
+
+    @Override
+    protected void initView(View view) {
+
     }
 
     @OnClick(R.id.city)

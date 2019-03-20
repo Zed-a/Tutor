@@ -8,7 +8,8 @@ import com.nan.tutor.ui.adapter.TutorFragmentPagerAdapter;
 import com.nan.tutor.ui.base.BaseActivity;
 import com.nan.tutor.ui.fragment.HomeFragment;
 import com.nan.tutor.ui.fragment.PersonFragment;
-import com.nan.tutor.ui.fragment.ProtocolFragment;
+import com.nan.tutor.ui.fragment.ClassFragment;
+import com.nan.tutor.ui.fragment.SocialFragment;
 import com.nan.tutor.ui.fragment.StudyFragment;
 
 import java.util.ArrayList;
@@ -48,18 +49,20 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initFrag(){
-        StudyFragment studyFragment = new StudyFragment();
-        fragments.add(studyFragment);
-        fragtitles.add("学习");
-        ProtocolFragment protocalFragment = new ProtocolFragment();
-        fragments.add(protocalFragment);
-        fragtitles.add("协议");
         HomeFragment homeFragment = new HomeFragment();
         fragments.add(homeFragment);
         fragtitles.add("主页");
+        StudyFragment studyFragment = new StudyFragment();
+        fragments.add(studyFragment);
+        fragtitles.add("学习");
+        ClassFragment protocalFragment = new ClassFragment();
+        fragments.add(protocalFragment);
+        fragtitles.add("课程");
+        fragments.add(new SocialFragment());
+        fragtitles.add("社区");
         PersonFragment personFragment = new PersonFragment();
         fragments.add(personFragment);
-        fragtitles.add("账户");
+        fragtitles.add("我的");
     }
 
 }

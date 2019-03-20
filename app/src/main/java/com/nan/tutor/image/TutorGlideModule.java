@@ -35,7 +35,7 @@ public class TutorGlideModule extends AppGlideModule {
     OkHttpClient okHttpClient;
 
     public TutorGlideModule() {
-        TutorApplication.get().getAppComponent().inject(this);
+        TutorApplication.getInstance().getAppComponent().inject(this);
     }
 
     @Override
