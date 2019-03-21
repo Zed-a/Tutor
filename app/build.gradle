@@ -61,6 +61,7 @@ dependencies {
     //ui
     implementation 'com.github.chenupt.android:springindicator:1.0.2@aar'
     implementation 'com.zaaach:citypicker:2.0.3'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.youth.banner:banner:1.4.10'
 
     //image

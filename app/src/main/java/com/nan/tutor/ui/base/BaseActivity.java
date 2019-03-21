@@ -11,7 +11,7 @@ import butterknife.ButterKnife;
 import dagger.android.AndroidInjection;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
+    public final String TAG = getClass().getSimpleName();
     protected void onCreate(Bundle saveInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(saveInstanceState);
