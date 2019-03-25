@@ -2,13 +2,16 @@ package com.nan.tutor.ui.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nan.tutor.R;
 import com.nan.tutor.bean.Teacher;
+import com.nan.tutor.log.TutorLog;
 import com.nan.tutor.ui.activity.InstitutionListActivity;
 import com.nan.tutor.ui.activity.TeacherListActivity;
 import com.nan.tutor.ui.adapter.NiceTeacherAdapter;
@@ -17,6 +20,13 @@ import com.nan.tutor.ui.base.BaseFragment;
 import com.nan.tutor.util.ImageUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
+import com.zaaach.citypicker.CityPicker;
+import com.zaaach.citypicker.adapter.OnPickListener;
+import com.zaaach.citypicker.model.City;
+import com.zaaach.citypicker.model.HotCity;
+import com.zaaach.citypicker.model.LocatedCity;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +36,16 @@ import butterknife.OnClick;
 
 public class HomeFragment extends BaseFragment {
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_home;
+    }
+
     @BindView(R.id.banner)
     Banner banner;
+
+    @BindView(R.id.city)
+    TextView city;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -44,11 +62,33 @@ public class HomeFragment extends BaseFragment {
         startActivity(intent);
     }
 
+    @OnClick(R.id.city)
+    void onClickCity() {
+        List<HotCity> hotCities = new ArrayList<>();
+        hotCities.add(new HotCity("北京", "北京", "101010100"));
+        hotCities.add(new HotCity("上海", "上海", "101020100"));
+        hotCities.add(new HotCity("广州", "广东", "101280101"));
+        hotCities.add(new HotCity("深圳", "广东", "101280601"));
+        hotCities.add(new HotCity("杭州", "浙江", "101210101"));
 
+        CityPicker.from(this) //activity或者fragment
+//                .enableAnimation(true)	//启用动画效果，默认无
+//                .setAnimationStyle(anim)	//自定义动画
+                .setLocatedCity(new LocatedCity("上海", "上海", "101020100"))
+                .setHotCities(hotCities)	//指定热门城市
+                .setOnPickListener(new OnPickListener() {
+                    @Override
+                    public void onPick(int position, City data) {
+                        city.setText(data.getName());
+                    }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_home;
+                    @Override
+                    public void onCancel(){}
+
+                    @Override
+                    public void onLocate() {}
+                })
+                .show();
     }
 
     @Override
@@ -61,23 +101,33 @@ public class HomeFragment extends BaseFragment {
         });
         //设置图片集合
         List<String> images = new ArrayList<>();
-        images.add("http://pic1.win4000.com/wallpaper/6/53a2444c0a635.jpg");
-        images.add("http://pic1.win4000.com/wallpaper/6/53a2444c0a635.jpg");
-        images.add("http://pic1.win4000.com/wallpaper/6/53a2444c0a635.jpg");
-        images.add("http://pic1.win4000.com/wallpaper/6/53a2444c0a635.jpg");
+        Uri uri;
+        uri = ImageUtils.resourceIdToUri(context,R.drawable.home_top);
+        images.add(uri.toString());
+        uri = ImageUtils.resourceIdToUri(context,R.drawable.home_top2);
+        images.add(uri.toString());
+        uri = ImageUtils.resourceIdToUri(context,R.drawable.home_top3);
+        images.add(uri.toString());
         banner.setImages(images);
         banner.start();
 
         List<Teacher> teacherList = new ArrayList<>();
 
-        Teacher teacher = new Teacher("http://pic1.win4000.com/wallpaper/6/53a2444c0a635.jpg","123","123");
-        for (int i = 0; i < 10; i++) {
-            teacherList.add(teacher);
-        }
+        uri = ImageUtils.resourceIdToUri(context, R.drawable.home_zhang);
+        Teacher teacher = new Teacher(uri.toString(),"123","123");
+        teacherList.add(teacher);
+        uri = ImageUtils.resourceIdToUri(context,R.drawable.home_zhao);
+        teacher = new Teacher(uri.toString(),"123","123");
+        teacherList.add(teacher);
+        uri = ImageUtils.resourceIdToUri(context,R.drawable.home_tina);
+        teacher = new Teacher(uri.toString(),"123","123");
+        teacherList.add(teacher);
+
+
         NiceTeacherAdapter niceTeacherAdapter = new NiceTeacherAdapter(getActivity(),teacherList);
-        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(getActivity());
-        gridLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(niceTeacherAdapter);
     }
 }

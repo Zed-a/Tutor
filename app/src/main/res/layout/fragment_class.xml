@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.ClassFragment"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <TextView
+        android:id="@+id/progress_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="课程进度"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="7dp"
+        />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/progress_text"
+        android:layout_marginLeft="13dp"/>
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="300dp"
+        android:layout_height="217dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/progress_text"
+        android:background="@drawable/class_pic"/>
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/pic"
+        android:layout_width="300dp"
+        android:layout_height="337dp"
+        android:background="@drawable/class_below"/>
+</RelativeLayout>

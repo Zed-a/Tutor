@@ -3,7 +3,12 @@ package com.nan.tutor.ui.base;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.nan.tutor.log.TutorLog;
 
@@ -23,6 +28,28 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initView();
         initData();
+    }
+
+    private boolean enableBackBtn = false;
+
+    protected void setupToolbar(@NonNull Toolbar toolbar, boolean enableBackBtn, String title) {
+        this.enableBackBtn = enableBackBtn;
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(enableBackBtn);
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            if (enableBackBtn) {
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

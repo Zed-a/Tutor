@@ -1,21 +1,21 @@
 package com.nan.tutor.ui.activity;
 
+import android.net.Uri;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import com.nan.tutor.R;
 import com.nan.tutor.bean.Teacher;
-import com.nan.tutor.log.TutorLog;
 import com.nan.tutor.ui.adapter.TeacherListAdapter;
 import com.nan.tutor.ui.base.BaseActivity;
-import com.nan.tutor.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
+
+import static com.nan.tutor.util.ImageUtils.resourceIdToUri;
 
 public class TeacherListActivity extends BaseActivity {
 
@@ -29,38 +29,38 @@ public class TeacherListActivity extends BaseActivity {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
-    @OnClick(R.id.chinese)
-    void clickChinese() {
-        ToastUtil.show(this,"chinese");
-    }
-
-    @OnClick(R.id.math)
-    void clickMath() {
-        ToastUtil.show(this,"math");
-    }
-
-    @OnClick(R.id.english)
-    void clickEnglish() {
-        ToastUtil.show(this,"english");
-    }
-
-    @OnClick(R.id.physics)
-    void clickPhysics() {
-        ToastUtil.show(this,"physics");
-    }
-
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void initView() {
+        setupToolbar(toolbar,true,"附近老师");
         super.initView();
         teacherList = new ArrayList<>();
-        Teacher teacher = new Teacher("http://pic1.win4000.com/wallpaper/6/53a2444c0a635.jpg","123","123");
-        for (int i = 0; i < 10; i++) {
-            teacherList.add(teacher);
-        }
+        Uri uri ;
+        Teacher teacher;
+        uri= resourceIdToUri(this,R.drawable.teacher_li);
+        teacher = new Teacher(uri.toString(),"李莉老师","初一语文，五年");
+        teacherList.add(teacher);
+        uri= resourceIdToUri(this,R.drawable.teacher_shen);
+        teacher = new Teacher(uri.toString(),"沈倩老师","初二化学，三年");
+        teacherList.add(teacher);
+        uri= resourceIdToUri(this,R.drawable.teacher_tina);
+        teacher = new Teacher(uri.toString(),"Tina老师","高三英语，三年");
+        teacherList.add(teacher);
+        uri= resourceIdToUri(this,R.drawable.teacher_zhang);
+        teacher = new Teacher(uri.toString(),"张亮老师","高一物理，六年");
+        teacherList.add(teacher);
+        uri= resourceIdToUri(this,R.drawable.teacher_wu);
+        teacher = new Teacher(uri.toString(),"吴明老师","初二地理，两年");
+        teacherList.add(teacher);
+        uri= resourceIdToUri(this,R.drawable.teacher_zhao);
+        teacher = new Teacher(uri.toString(),"赵宏老师","高二生物，七年");
+        teacherList.add(teacher);
         TeacherListAdapter teacherListAdapter=new TeacherListAdapter(this,teacherList);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(teacherListAdapter);
     }
+
 }

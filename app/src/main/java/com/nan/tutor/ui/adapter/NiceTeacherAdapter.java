@@ -37,22 +37,16 @@ public class NiceTeacherAdapter extends RecyclerView.Adapter<NiceTeacherAdapter.
     class NiceTeacherViewHolder extends RecyclerView.ViewHolder {
         View itemView;
         private ImageView image;
-        private TextView name;
-        private TextView des;
 
         NiceTeacherViewHolder(View view) {
             super(view);
             itemView = view;
             image = view.findViewById(R.id.image);
-            name = view.findViewById(R.id.name);
-            des = view.findViewById(R.id.des);
         }
     }
 
     @Override
     public void onBindViewHolder(@NonNull NiceTeacherViewHolder holder, final int position) {
-        holder.name.setText(mDatas.get(position).getName());
-        holder.des.setText(mDatas.get(position).getDescription());
         ImageUtils.load(mContext,mDatas.get(position).getImage(),holder.image);
     }
 

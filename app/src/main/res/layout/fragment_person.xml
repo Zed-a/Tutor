@@ -22,7 +22,7 @@
         android:textColor="@color/black"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="5dp"
         android:background="#EBE8E8"
         android:layout_marginTop="104dp"/>
     <TextView

@@ -19,12 +19,12 @@ import java.util.List;
 /**
  * Created by nan on 2019/3/21.
  */
-public class TeacherListAdapter extends RecyclerView.Adapter<TeacherListAdapter.TeacherListViewHolder> {
+public class SocialActivityAdapter extends RecyclerView.Adapter<SocialActivityAdapter.SocialActivityViewHolder> {
     private Context mContext;
     private List<Teacher> mDatas;
     private LayoutInflater inflater;
 
-    public TeacherListAdapter(Context context, List<Teacher> mDatas){
+    public SocialActivityAdapter(Context context, List<Teacher> mDatas){
         this.mContext = context;
         this.mDatas = mDatas;
         inflater = LayoutInflater.from(mContext);
@@ -35,13 +35,13 @@ public class TeacherListAdapter extends RecyclerView.Adapter<TeacherListAdapter.
         return mDatas.size();
     }
 
-    class TeacherListViewHolder extends RecyclerView.ViewHolder {
+    class SocialActivityViewHolder extends RecyclerView.ViewHolder {
         View itemView;
         private ImageView image;
         private TextView name;
         private TextView des;
 
-        TeacherListViewHolder(View view) {
+        SocialActivityViewHolder(View view) {
             super(view);
             itemView = view;
             image = view.findViewById(R.id.image);
@@ -51,7 +51,7 @@ public class TeacherListAdapter extends RecyclerView.Adapter<TeacherListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TeacherListViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull SocialActivityViewHolder holder, final int position) {
         holder.name.setText(mDatas.get(position).getName());
         holder.des.setText(mDatas.get(position).getDescription());
         ImageUtils.load(mContext,mDatas.get(position).getImage(),holder.image);
@@ -59,9 +59,9 @@ public class TeacherListAdapter extends RecyclerView.Adapter<TeacherListAdapter.
 
     @NonNull
     @Override
-    public TeacherListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SocialActivityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view = inflater.inflate(R.layout.item_teacher,parent, false);
-        final TeacherListViewHolder holder= new TeacherListViewHolder(view);
+        final SocialActivityViewHolder holder= new SocialActivityViewHolder(view);
         return holder;
     }
 }

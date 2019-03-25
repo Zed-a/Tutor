@@ -1,19 +1,34 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.HomeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
     <TextView
+        android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="金沙江小区"
+        android:text="上海"
         android:textSize="20sp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
         android:textColor="@color/black"/>
-
+    <ImageView
+        android:id="@+id/search"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/home_search"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="59dp"
+        android:layout_alignTop="@+id/city"/>
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/home_message"
+        android:layout_alignTop="@+id/search"/>
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_centerHorizontal="true"
@@ -33,7 +48,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="15dp"
-            android:background="@color/black"
+            android:background="@drawable/home_near_teacher"
             android:layout_weight="1"/>
 
         <ImageView
@@ -41,7 +56,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="16dp"
-            android:background="@color/black"
+            android:background="@drawable/home_near_institution"
             android:layout_toRightOf="@+id/teacher"
             android:layout_weight="1"/>
 
@@ -50,21 +65,22 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="16dp"
-            android:background="@color/black"
+            android:background="@drawable/home_near_mate"
             android:layout_toRightOf="@+id/institution"
             android:layout_weight="1"/>
 
         <ImageView
-            android:id="@+id/image4"
+            android:id="@+id/experience_class"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="16dp"
-            android:background="@color/black"
+            android:background="@drawable/home_tiyanke"
             android:layout_toRightOf="@+id/mate"
             android:layout_weight="1"
             android:layout_marginRight="15dp"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -99,6 +115,12 @@
             android:textColor="@color/black"
             android:layout_weight="1"/>
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#EBE8E8"
+        android:layout_below="@id/linear"
+        android:layout_marginTop="15dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -113,4 +135,4 @@
         android:layout_height="110dp"
         android:layout_marginTop="420dp">
     </android.support.v7.widget.RecyclerView>
-</FrameLayout>
+</RelativeLayout>

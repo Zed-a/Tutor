@@ -3,6 +3,7 @@ package com.nan.tutor.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Environment;
 import android.widget.ImageView;
 
@@ -102,5 +103,11 @@ public class ImageUtils {
         }
 
         return file;
+    }
+
+    private static final String ANDROID_RESOURCE = "android.resource://";
+    private static final String FOREWARD_SLASH = "/";
+    public static Uri resourceIdToUri(Context context, int resourceId) {
+        return Uri.parse(ANDROID_RESOURCE + context.getPackageName() + FOREWARD_SLASH + resourceId);
     }
 }

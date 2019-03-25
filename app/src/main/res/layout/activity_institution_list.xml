@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.InstitutionListActivity">
-
-</android.support.constraint.ConstraintLayout>
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+    <TextView
+        android:id="@+id/near_institution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/toolbar"
+        android:text="评分最高"
+        android:textColor="@color/black"
+        android:layout_marginLeft="16dp"
+        android:textSize="16sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="距离最近"
+        android:textColor="#101010"
+        android:layout_toRightOf="@+id/near_institution"
+        android:layout_marginLeft="18dp"
+        android:layout_alignBottom="@+id/near_institution"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/near_institution"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>
