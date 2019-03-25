@@ -11,11 +11,9 @@ import android.widget.TextView;
 
 import com.nan.tutor.R;
 import com.nan.tutor.bean.Teacher;
-import com.nan.tutor.log.TutorLog;
 import com.nan.tutor.ui.activity.InstitutionListActivity;
 import com.nan.tutor.ui.activity.TeacherListActivity;
 import com.nan.tutor.ui.adapter.NiceTeacherAdapter;
-import com.nan.tutor.ui.adapter.TeacherListAdapter;
 import com.nan.tutor.ui.base.BaseFragment;
 import com.nan.tutor.util.ImageUtils;
 import com.youth.banner.Banner;
@@ -25,8 +23,6 @@ import com.zaaach.citypicker.adapter.OnPickListener;
 import com.zaaach.citypicker.model.City;
 import com.zaaach.citypicker.model.HotCity;
 import com.zaaach.citypicker.model.LocatedCity;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,9 +108,10 @@ public class HomeFragment extends BaseFragment {
         banner.start();
 
         List<Teacher> teacherList = new ArrayList<>();
+        Teacher teacher;
 
         uri = ImageUtils.resourceIdToUri(context, R.drawable.home_zhang);
-        Teacher teacher = new Teacher(uri.toString(),"123","123");
+        teacher = new Teacher(uri.toString(),"123","123");
         teacherList.add(teacher);
         uri = ImageUtils.resourceIdToUri(context,R.drawable.home_zhao);
         teacher = new Teacher(uri.toString(),"123","123");
@@ -122,7 +119,6 @@ public class HomeFragment extends BaseFragment {
         uri = ImageUtils.resourceIdToUri(context,R.drawable.home_tina);
         teacher = new Teacher(uri.toString(),"123","123");
         teacherList.add(teacher);
-
 
         NiceTeacherAdapter niceTeacherAdapter = new NiceTeacherAdapter(getActivity(),teacherList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());

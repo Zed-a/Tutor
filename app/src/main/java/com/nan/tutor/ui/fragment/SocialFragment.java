@@ -35,7 +35,7 @@ public class SocialFragment extends BaseFragment {
         List<Teacher> teacherList = new ArrayList<>();
         Uri uri;
         uri = ImageUtils.resourceIdToUri(context, R.drawable.social_top_left);
-        Teacher teacher = new Teacher(uri.toString(),"123","123");
+        Teacher teacher = new Teacher(uri.toString(),"456","123");
         teacherList.add(teacher);
         uri = ImageUtils.resourceIdToUri(context,R.drawable.social_top_middle);
         teacher = new Teacher(uri.toString(),"123","123");

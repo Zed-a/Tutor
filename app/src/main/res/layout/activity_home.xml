@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:background="#fcfcf4">
 
-    <android.support.v4.view.ViewPager
+    <com.nan.tutor.ui.view.NoAnimationViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"></android.support.v4.view.ViewPager>
+        android:layout_weight="1"/>
 
     <github.chenupt.springindicator.SpringIndicator
         xmlns:app="http://schemas.android.com/apk/res-auto"

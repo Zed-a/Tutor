@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.annotation.DrawableRes;
 import android.widget.ImageView;
 
 import com.bumptech.glide.request.RequestOptions;
@@ -20,6 +21,10 @@ public class ImageUtils {
 
     public static void load(Context context, String uri, ImageView imageView) {
         GlideApp.with(context).load(uri).into(imageView);
+    }
+
+    public static void load(Context context, @DrawableRes int resourceId, ImageView imageView) {
+        GlideApp.with(context).load(resourceId).into(imageView);
     }
 
     public static void load(Context context, int widthPx, int heightPx,
