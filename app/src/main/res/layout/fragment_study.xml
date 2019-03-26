@@ -5,15 +5,120 @@
     tools:context=".ui.fragment.StudyFragment"
     android:orientation="vertical"
     android:background="@color/white">
+
     <ImageView
         android:id="@+id/analise"
         android:layout_width="match_parent"
-        android:layout_height="267dp"
-        android:background="@drawable/study_grade_analize"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_height="350dp"
+        android:background="@drawable/study_grade_analize" />
+
     <ImageView
+        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="#E8E8E8"
         android:layout_below="@id/analise"/>
+
+    <TextView
+        android:id="@id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="课程答疑记录"
+        android:layout_below="@+id/image"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/text"
+        android:layout_marginTop="10dp"
+        android:background="#E8E8E8"/>
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@id/line1" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tina"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_below="@id/line1"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/image1"
+        android:layout_marginLeft="19dp"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="2.16日 19:00-20:00"
+        android:layout_below="@+id/text1"
+        android:layout_alignLeft="@+id/text1"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/image1"
+        android:layout_marginTop="18dp"
+        android:background="#E8E8E8"/>
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@id/line2" />
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="赵正平"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_below="@id/line2"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/image2"
+        android:layout_marginLeft="19dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="2.17日 16:00-17:00"
+        android:layout_below="@+id/text2"
+        android:layout_alignLeft="@+id/text2"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"/>
+
+
+    <ImageView
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/image2"
+        android:layout_marginTop="18dp"
+        android:background="#E8E8E8"/>
+
 </RelativeLayout>
