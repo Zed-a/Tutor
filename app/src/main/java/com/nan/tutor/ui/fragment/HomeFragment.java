@@ -110,14 +110,11 @@ public class HomeFragment extends BaseFragment {
         List<Teacher> teacherList = new ArrayList<>();
         Teacher teacher;
 
-        uri = ImageUtils.resourceIdToUri(context, R.drawable.home_zhang);
-        teacher = new Teacher(uri.toString(),"123","123");
+        teacher = new Teacher(R.drawable.home_zhang,"123","123");
         teacherList.add(teacher);
-        uri = ImageUtils.resourceIdToUri(context,R.drawable.home_zhao);
-        teacher = new Teacher(uri.toString(),"123","123");
+        teacher = new Teacher(R.drawable.home_zhao,"123","123");
         teacherList.add(teacher);
-        uri = ImageUtils.resourceIdToUri(context,R.drawable.home_tina);
-        teacher = new Teacher(uri.toString(),"123","123");
+        teacher = new Teacher(R.drawable.home_tina,"123","123");
         teacherList.add(teacher);
 
         NiceTeacherAdapter niceTeacherAdapter = new NiceTeacherAdapter(getActivity(),teacherList);

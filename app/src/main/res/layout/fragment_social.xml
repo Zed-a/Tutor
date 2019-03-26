@@ -6,8 +6,52 @@
     tools:context=".ui.fragment.SocialFragment"
     android:background="@color/white">
 
+    <TextView
+        android:id="@+id/activity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="素拓活动"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/black"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:layout_below="@+id/activity_text"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/divide_line1"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#E8E8E8"
+        android:layout_below="@+id/recycler_view"/>
+    <TextView
+        android:id="@+id/find_mate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="寻找学伴"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/divide_line1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"/>
+    <TextView
+        android:id="@+id/find_mate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="正在学习的都有TA们"
+        android:layout_below="@+id/find_mate"
+        android:layout_alignLeft="@+id/find_mate"
+        android:textSize="12sp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/find_mate2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 </RelativeLayout>

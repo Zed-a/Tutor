@@ -4,19 +4,24 @@ package com.nan.tutor.bean;
  * Created by nan on 2019/3/20.
  */
 public class Teacher {
-    private String image;
+    private int image;
     private String name;
     private String description;
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 
-    public Teacher(String image, String name, String description) {
+    public Teacher(int image, String name) {
+        this.image = image;
+        this.name = name;
+    }
+
+    public Teacher(int image, String name, String description) {
         this.image = image;
         this.name = name;
         this.description = description;
