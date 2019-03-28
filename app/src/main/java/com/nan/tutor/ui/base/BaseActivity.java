@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.nan.tutor.log.TutorLog;
+import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
 import dagger.android.AndroidInjection;
@@ -23,7 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         AndroidInjection.inject(this);
         super.onCreate(saveInstanceState);
 //        setTranslucentStatus();
-        TutorLog.i(getClass().getSimpleName(), "onCreate");
+        Logger.i(getClass().getSimpleName(), "onCreate");
         if (getLayoutId() != 0) {
             setContentView(getLayoutId());
         }
@@ -73,49 +73,49 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        TutorLog.i(getClass().getSimpleName(),"onSaveInstanceState");
+        Logger.i(getClass().getSimpleName(),"onSaveInstanceState");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        TutorLog.i(getClass().getSimpleName(),"onRestart");
+        Logger.i(getClass().getSimpleName(),"onRestart");
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        TutorLog.i(getClass().getSimpleName(),"onRestoreInstanceState");
+        Logger.i(getClass().getSimpleName(),"onRestoreInstanceState");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        TutorLog.i(getClass().getSimpleName(),"onDestroy");
+        Logger.i(getClass().getSimpleName(),"onDestroy");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        TutorLog.i(getClass().getSimpleName(),"onStop");
+        Logger.i(getClass().getSimpleName(),"onStop");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        TutorLog.i(getClass().getSimpleName(),"onPause");
+        Logger.i(getClass().getSimpleName(),"onPause");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        TutorLog.i(getClass().getSimpleName(),"onResume");
+        Logger.i(getClass().getSimpleName(),"onResume");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        TutorLog.i(getClass().getSimpleName(),"onStart");
+        Logger.i(getClass().getSimpleName(),"onStart");
     }
 
     protected abstract int getLayoutId();

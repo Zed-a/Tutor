@@ -69,5 +69,9 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.8.0'
 
+    //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //log
+    implementation 'com.orhanobut:logger:2.2.0'
 }

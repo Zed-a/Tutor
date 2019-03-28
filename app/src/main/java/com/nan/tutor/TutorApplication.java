@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import com.facebook.stetho.Stetho;
 import com.nan.tutor.di.AppComponent;
 import com.nan.tutor.di.DaggerAppComponent;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -47,6 +49,7 @@ public class TutorApplication extends Application implements HasActivityInjector
         INSTANCE = this;
         appComponent = DaggerAppComponent.builder().application(this).build();
         appComponent.inject(this);
+        Logger.addLogAdapter(new AndroidLogAdapter());
         init();
     }
 

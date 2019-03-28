@@ -5,7 +5,6 @@ import android.widget.EditText;
 
 import com.nan.tutor.R;
 import com.nan.tutor.bean.Student;
-import com.nan.tutor.log.TutorLog;
 import com.nan.tutor.network.JsonDataResp;
 import com.nan.tutor.network.RxSchedulers;
 import com.nan.tutor.network.RxSubscriber;
@@ -13,6 +12,7 @@ import com.nan.tutor.network.service.LoginService;
 import com.nan.tutor.storage.StudentPrefs;
 import com.nan.tutor.ui.base.BaseActivity;
 import com.nan.tutor.util.ToastUtil;
+import com.orhanobut.logger.Logger;
 
 import javax.inject.Inject;
 
@@ -40,7 +40,7 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.regitster)
     void clickRegister() {
-        TutorLog.i("registerTest","start");
+        Logger.i("registerTest","start");
         String phone = mAccount.getText().toString();
         String password = mPassword.getText().toString();
         loginService.rigister(phone,password)
@@ -49,7 +49,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onNext(JsonDataResp<Student> resp) {
                         super.onNext(resp);
-                        TutorLog.i("registerTest",resp.toString());
+                        Logger.i("registerTest",resp.toString());
                         if (resp.code == 0) {
                             ToastUtil.show(LoginActivity.this,"注册成功");
                         } else {
@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.login)
     void clickLogin() {
-        TutorLog.i("loginTest","start");
+        Logger.i("loginTest","start");
         String phone = mAccount.getText().toString();
         String password = mPassword.getText().toString();
         loginService.login(phone,password)
@@ -70,7 +70,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onNext(JsonDataResp<Student> resp) {
                         super.onNext(resp);
-                        TutorLog.i("loginTest",resp.toString());
+                        Logger.i("loginTest",resp.toString());
                         if (resp.code == 0) {
                             ToastUtil.show(LoginActivity.this,"登录成功");
                             Student student = resp.data;

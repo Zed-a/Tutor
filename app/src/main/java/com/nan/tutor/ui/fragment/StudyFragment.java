@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.nan.tutor.R;
 import com.nan.tutor.ui.base.BaseFragment;
 import com.nan.tutor.util.ImageUtils;
+import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 
@@ -26,5 +27,6 @@ public class StudyFragment extends BaseFragment {
     protected void initView(View view) {
         ImageUtils.load(context,R.drawable.icon_english,image1);
         ImageUtils.load(context,R.drawable.icon_math,image2);
+        Logger.d("123");
     }
 }
