@@ -25,8 +25,8 @@ public class StudyFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
+        Logger.w("start");
         ImageUtils.load(context,R.drawable.icon_english,image1);
         ImageUtils.load(context,R.drawable.icon_math,image2);
-        Logger.d("123");
     }
 }
